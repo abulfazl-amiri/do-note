@@ -1,8 +1,10 @@
-desing
+design
 notes
 node_modules
 dist
 dist-ssr
+.codex
+.vscode
 
 
 

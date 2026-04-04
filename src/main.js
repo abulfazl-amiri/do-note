@@ -1,5 +1,7 @@
 import './style.css'
 
-const sayHi = function (){
-    console.log("HI");
-}
+const app = document.querySelector("#app");
+// app.innerHTML = `
+
+
+// `;
