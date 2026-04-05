@@ -15,17 +15,29 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <header class="bg-[#8b98f910]">
+  <body class="min-h-screen flex flex-col">
+    <header class="grow-0">
       <nav
-        class="flex justify-between max-h-20 px-4 py-2 fixed w-full backdrop-blur-sm"
+        class="flex justify-between max-h-20 px-4 py-2 gap-4 w-full shadow-lg bg-[#222]"
       >
-        <div class="container-logo">
-          <img class="h-full" src="/logo.png" alt="Logo of the DoNote App" />
+        <div class="">
+          <img
+            class="h-full"
+            src="/logo-white.png"
+            alt="Logo of the DoNote App"
+          />
+        </div>
+        <div
+          class="flex flex-row justify-center items-center gap-1 text-green-400 hover:contrast-75"
+        >
+          <img class="size-8" src="/icon.png" alt="Won donutes" />
+          <span>+3</span>
         </div>
         <ul class="flex items-center justify-between">
           <li>
-            <button class="px-4 py-2 flex flex-row gap-2">
+            <button
+              class="px-4 py-2 flex flex-row gap-2 text-white hover:contrast-75"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -44,7 +56,9 @@
             </button>
           </li>
           <li>
-            <button class="px-4 py-2 flex flex-row gap-2">
+            <button
+              class="px-4 py-2 flex flex-row gap-2 text-white hover:contrast-75"
+            >
               <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -78,51 +92,76 @@
         </ul>
       </nav>
     </header>
-    <main id="app" class="flex justify-center min-h-dvh">
+    <main id="app" class="flex justify-center flex-1 min-h-0 border-2">
       <section
         id="todo-app"
-        class="bg-[#8b98f923] min-w-xs w-2xl max-w-3xl mt-24"
+        class="min-w-xs w-2xl max-w-3xl flex flex-col flex-1 min-h-0 mt-24 rounded-sm px-4 pb-6"
       >
-        <form class="mb-4">
+        <form class="mb-6 text-white px-4">
           <input
             type="text"
             placeholder="Create a new todo..."
-            class="bg-[#8b98f923] w-full px-8 py-4 text-2xl rounded-lg"
+            class="bg-[#222] px-5 py-4 text-xl rounded-sm w-full"
           />
         </form>
 
-        <div id="todo-container" class="">
-          <ul class="todo-list mx-4 flex flex-col gap-2 overflow-y-auto">
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
+        <div
+          id="todo-container"
+          class="flex-1 min-h-0 overflow-y-auto mb-4 pr-1"
+        >
+          <ul class="todo-list mx-4 flex flex-col gap-2">
+            <li
+              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+            >
               Task 1
             </li>
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
+            <li
+              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+            >
               Task 2
             </li>
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
+            <li
+              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+            >
               Task 3
             </li>
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
+            <li
+              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+            >
               Task 4
             </li>
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
-              Task 4
-            </li>
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
-              Task 4
-            </li>
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
-              Task 4
-            </li>
-            <li class="todo px-4 py-6 text-[#e7eaff] mb-0.5 bg-[#8b98f923]">
-              Task 4
+            <li
+              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+            >
+              Task 5
             </li>
           </ul>
         </div>
+        <div
+          class="sort flex flex-row justify-end items-center text-gray-500 px-4 gap-4"
+        >
+          <span
+            class="min-w-8 h-8 px-2 inline-flex items-center justify-center rounded-full bg-[#222] text-gray-300 text-sm"
+            title="Total todos"
+          >
+            5
+          </span>
+          <button
+            class="text-green-700 hover:brightness-125 mr-auto"
+            title="Clear done and win a donut 🍩!"
+          >
+            Clear done & win the Donuts
+          </button>
+          <button class="selected text-gray-300 hover:brightness-125">
+            All
+          </button>
+          <button class="hover:brightness-125">Doing</button>
+          <button class="hover:brightness-125">Done</button>
+        </div>
       </section>
     </main>
-    <footer>
-      <p class="text-[#e8eaf7a0] text-xs text-center">
+    <footer class="shrink-0">
+      <p class="text-[#e8eaf7a0] text-xs flex py-4 justify-center mt-auto">
         &copy; Abulfazl Amiri, 2026
       </p>
     </footer>
