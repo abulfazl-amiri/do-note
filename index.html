@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DoNote</title>
     <script type="module" src="/src/main.js"></script>
-    <!-- <link rel="stylesheet" href="/src/style.css"> -->
-    <!-- importing it in js is enought in vite  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,155 +13,324 @@
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen flex flex-col">
-    <header class="grow-0">
+  <body class="max-h-dvh flex flex-col text-sm relative">
+    <header class="h-20">
       <nav
-        class="flex justify-between max-h-20 px-4 py-2 gap-4 w-full shadow-lg bg-[#222]"
+        class="h-full w-full box-border grid grid-cols-3 items-center px-2 gap-4 shadow-lg bg-[#222]"
       >
-        <div class="">
+        <div class="w-24 h-full">
           <img
-            class="h-full"
-            src="/logo-white.png"
+            class="h-full object-contain"
+            src="/logo-amber.png"
             alt="Logo of the DoNote App"
           />
         </div>
         <div
-          class="flex flex-row justify-center items-center gap-1 text-green-400 hover:contrast-75"
+          class="flex flex-row justify-center items-center gap-1 text-amber-500 hover:contrast-75"
         >
-          <img class="size-8" src="/icon.png" alt="Won donutes" />
+          <img class="size-5" src="/icon.png" alt="Won donutes" />
           <span>+3</span>
         </div>
-        <ul class="flex items-center justify-between">
-          <li>
-            <button
-              class="px-4 py-2 flex flex-row gap-2 text-white hover:contrast-75"
-            >
+        <ul class="m-0 flex items-center justify-end p-0 list-none">
+          <li class="px-3 py-2">
+            <button class="flex flex-row gap-2 text-white hover:contrast-75">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                fill="none"
                 stroke="currentColor"
-                class="size-6"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-5 lucide lucide-circle-user-round-icon lucide-circle-user-round"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
+                <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
+                <circle cx="12" cy="11" r="4" />
+                <circle cx="12" cy="12" r="10" />
               </svg>
-              Profile
+              <span class="hidden"> Profile </span>
             </button>
           </li>
-          <li>
-            <button
-              class="px-4 py-2 flex flex-row gap-2 text-white hover:contrast-75"
-            >
-              <!-- <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-                />
-              </svg> -->
+          <li class="px-3 py-2">
+            <button class="flex flex-row gap-2 text-white hover:contrast-75">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                fill="none"
                 stroke="currentColor"
-                class="size-6"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-5 lucide lucide-sun-icon lucide-sun"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
               </svg>
             </button>
           </li>
         </ul>
       </nav>
     </header>
-    <main id="app" class="flex justify-center flex-1 min-h-0 border-2">
-      <section
-        id="todo-app"
-        class="min-w-xs w-2xl max-w-3xl flex flex-col flex-1 min-h-0 mt-24 rounded-sm px-4 pb-6"
-      >
-        <form class="todo-form mb-6 text-white px-4">
+    <main id="app" class="flex justify-center items-center flex-1">
+      <section id="todo-app" class="w-2xl grid gap-4 rounded-sm px-4 pt-10">
+        <form
+          class="todo-form flex flex-row justify-between items-center relative grow-0 bg-[#222] text-white px-4 rounded-sm border-transparent border focus-within:border focus-within:border-current"
+        >
           <input
             type="text"
             placeholder="Create a new todo..."
-            class="todo-input bg-[#222] px-5 py-4 text-xl rounded-sm w-full"
+            class="todo-input py-4 rounded-sm w-full border-0 outline-0"
           />
+          <button class="btn-add bg-amber-600 rounded-sm p-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 lucide lucide-plus-icon lucide-plus"
+            >
+              <path d="M5 12h14" />
+              <path d="M12 5v14" />
+            </svg>
+          </button>
         </form>
 
-        <div
-          id="todo-container"
-          class="flex-1 min-h-0 overflow-y-auto mb-4 pr-1"
-        >
-          <ul class="todo-list mx-4 flex flex-col gap-2">
+        <div id="todo-container" class="flex-1 min-h-0">
+          <ul class="todo-list flex flex-col gap-2 h-[60vh] overflow-y-auto">
             <li
-              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+              class="todo grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3 px-4 py-5 max-w-full text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
             >
-              Task 1
+              <button class="hover:brightness-75">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 lucide lucide-circle-icon lucide-circle"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+              </button>
+              <span class="overflow-x-clip"> Task 1 </span>
+              <button class="ml-auto hover:brightness-75 p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 lucide lucide-x-icon lucide-x"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
             </li>
             <li
-              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+              class="todo grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3 px-4 py-5 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
             >
-              Task 2
-            </li>
-            <li
-              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
-            >
-              Task 3
-            </li>
-            <li
-              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
-            >
-              Task 4
-            </li>
-            <li
-              class="todo px-4 py-6 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
-            >
-              Task 5
+              <button class="hover:brightness-75">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 lucide lucide-circle-icon lucide-circle"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+              </button>
+              <span
+                class="overflow-hidden whitespace-nowrap text-ellipsis"
+                title=""
+              >
+                A very long task with a lot of words, it will get ellipsised
+              </span>
+              <button class="ml-auto hover:brightness-75 p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 lucide lucide-x-icon lucide-x"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
             </li>
           </ul>
         </div>
         <div
-          class="sort flex flex-row justify-end items-center text-gray-500 px-4 gap-4"
+          class="sort flex flex-row justify-between items-center mt-auto text-gray-500 px-1 text-xs"
         >
-          <span
-            class="min-w-8 h-8 px-2 inline-flex items-center justify-center rounded-full bg-[#222] text-gray-300 text-sm"
-            title="Total todos"
-          >
-            5
-          </span>
-          <button
-            class="text-green-700 hover:brightness-125 mr-auto"
-            title="Clear done and win a donut 🍩!"
-          >
-            Clear done & win the Donuts
-          </button>
-          <button class="selected text-gray-300 hover:brightness-125">
+          <div class="mr-auto">
+            <span
+              class="w-6 h-6 px-2 inline-flex items-center justify-center rounded-full bg-[#222] text-amber-500"
+              title="Total todos"
+            >
+              5
+            </span>
+            <span class="">Tasks</span>
+          </div>
+          <button class="">Clear All</button>
+        </div>
+        <div
+          class="flex justify-center gap-8 bg-[#222] text-amber-500 rounded-sm px-6 py-3"
+        >
+          <button class="selected brightness-100 hover:brightness-75">
             All
           </button>
-          <button class="hover:brightness-125">Doing</button>
-          <button class="hover:brightness-125">Done</button>
+          <button class="brightness-75 hover:brightness-75">Doing</button>
+          <button class="brightness-75 hover:brightness-75">Done</button>
         </div>
       </section>
     </main>
-    <footer class="shrink-0">
-      <p class="text-[#e8eaf7a0] text-xs flex py-4 justify-center mt-auto">
-        &copy; Abulfazl Amiri, 2026
-      </p>
+    <footer class="flex justify-center items-center py-4">
+      <p class="text-gray-500 text-xs">&copy; Abulfazl Amiri, 2026</p>
     </footer>
+    <div class="overlay absolute h-full w-full backdrop-blur-xs"></div>
+
+    <div
+      class="preview-container absolute size-full flex justify-center items-center"
+    >
+      <div
+        class="profile-preview absolute flex flex-col w-[80vw] h-[50vh] bg-[#222] px-10 py-8 pt-14"
+      >
+        <div class="profile flex flex-row items-center gap-2 py-3">
+          <!-- <img src="" alt="User's profile" /> -->
+          <svgj
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-5 lucide lucide-circle-user-round-icon lucide-circle-user-round"
+          >
+            <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
+            <circle cx="12" cy="11" r="4" />
+            <circle cx="12" cy="12" r="10" />
+          </svgj>
+          <span> Full Name </span>
+        </div>
+        <div class="profile flex flex-row items-center gap-2 py-3">
+          <!-- <img src="" alt="User's profile" /> -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-5 lucide lucide-trash-icon lucide-trash"
+          >
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+            <path d="M3 6h18" />
+            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+          </svg>
+          <span> Clear All Todoes & History </span>
+        </div>
+        <div class="seprator border-b border-amber-900 mt-2"></div>
+        <div class="flex flex-row items-center gap-2 py-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-5 lucide lucide-user-round-plus-icon lucide-user-round-plus"
+          >
+            <path d="M2 21a8 8 0 0 1 13.292-6" />
+            <circle cx="10" cy="8" r="5" />
+            <path d="M19 16v6" />
+            <path d="M22 19h-6" />
+          </svg>
+          <span> Create new account </span>
+        </div>
+        <div class="flex flex-row items-center gap-2 py-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-5 lucide lucide-log-out-icon lucide-log-out"
+          >
+            <path d="m16 17 5-5-5-5" />
+            <path d="M21 12H9" />
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+          </svg>
+          <span> Logout </span>
+        </div>
+
+        <button class="absolute right-2 top-2 p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-4 h-4 lucide lucide-x-icon lucide-x"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </body>
 </html>

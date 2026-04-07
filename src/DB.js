@@ -18,7 +18,7 @@ export class Database {
     for (let acc of accounts) {
       if (!validateAccount(acc)) {
         throw new Error(
-          `Invalid account: ${acc}  username:${acc?.username} pin:${acc?.pin}`,
+          `Invalid account: '${acc}'  username: '${acc?.username}' pin: '${acc?.pin}'`,
         );
       }
     }
@@ -27,7 +27,7 @@ export class Database {
 
   addAccount(account) {
     if (!validateAccount(account)) {
-      throw new Error(`Invalid account: ${account}`);
+      throw new Error(`Invalid account: '${account}'`);
     }
     this.#accounts.push(account);
   }
@@ -37,13 +37,8 @@ export class Database {
       (acc) => account.username === acc.username && account.pin === acc.pin,
     );
     if (accountIndex === -1) {
-      throw new Error(`No Account were found like: ${account}`);
+      throw new Error(`No Account were found like: '${account}'`);
     }
     this.#accounts.splice(accountIndex, 1);
   }
-
-  // TODO: remove this
-  // static clearAllAccounts() {
-  //   this.#accounts = [];
-  // }
 }

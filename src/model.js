@@ -5,9 +5,6 @@ export class Todo {
    * Doing | Done | Deleted
    */
   #state;
-  /**
-   * The task to be done
-   */
   #task;
 
   /**
@@ -22,7 +19,7 @@ export class Todo {
 
   set task(task) {
     if (task.trim() === "") {
-      throw new Error(`No todo text specified task: ${task}`);
+      throw new Error(`No todo text specified task: '${task}'`);
     }
     this.#task = task;
   }
@@ -33,7 +30,7 @@ export class Todo {
       state.toUpperCase() !== "DONE" &&
       state.toUpperCase() !== "DELETED"
     ) {
-      throw new Error(`Invalid state:${state}`);
+      throw new Error(`Invalid state: '${state}'`);
     }
     this.#state = state;
   }
@@ -66,7 +63,7 @@ export class Account {
    * @param {Todo} todo the todo obj
    */
   addTodo(todo) {
-    if (!validateTodo(todo)) throw new Error(`Invalid Todo: ${todo}`);
+    if (!validateTodo(todo)) throw new Error(`Invalid Todo: '${todo}'`);
     this.#todoes.push(todo);
   }
   set username(username) {
@@ -85,7 +82,7 @@ export class Account {
   set pin(pin) {
     if (!/^\d{3,16}$/.test(pin)) {
       throw new Error(
-        `Invalid pin (must be at least 3 numbers up to 16): ${pin}`,
+        `Invalid pin (must be at least 3 numbers up to 16): '${pin}'`,
       );
     }
     this.#pin = pin;

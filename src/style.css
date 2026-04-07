@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-:root {
-  /* --prim-color: #8b98f9; */
-  /* --bg-color: rgb(13 14 25); */
-  /* --txt-color: #e7eaff; */
-}
+/* :root { */
+/* --prim-color: #8b98f9; */
+/* --bg-color: rgb(13 14 25); */
+/* --txt-color: #e7eaff; */
+/* } */
 
 body {
   font-family: "Inter", sans-serif;
@@ -16,6 +16,7 @@ body {
   /* background-color: var(--bg-color);
   color: var(--txt-color); */
   background-color: #111;
+  color: #eee;
 }
 
 #todo-container {
