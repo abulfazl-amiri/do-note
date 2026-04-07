@@ -1,7 +1,4 @@
-import './style.css'
+import "./style.css";
+import { init } from "./controller.js";
 
-const app = document.querySelector("#app");
-// app.innerHTML = `
-
-
-// `;
+init();
