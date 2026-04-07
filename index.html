@@ -132,7 +132,7 @@
                   <circle cx="12" cy="12" r="10" />
                 </svg>
               </button>
-              <span class="overflow-x-clip"> Task 1 </span>
+              <span class="overflow-x-clip"> Code 2h at 4pm </span>
               <button class="ml-auto hover:brightness-75 p-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -194,6 +194,50 @@
                 </svg>
               </button>
             </li>
+            <li
+              class="todo grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3 px-4 py-5 text-gray-400 mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
+            >
+              <button class="hover:brightness-75">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-4 lucide lucide-circle-check-icon lucide-circle-check"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </button>
+              <span
+                class="overflow-hidden whitespace-nowrap text-ellipsis line-through"
+                title=""
+              >
+                A Done task. grayed and crossed
+              </span>
+              <button class="ml-auto hover:brightness-75 p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 lucide lucide-x-icon lucide-x"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
+            </li>
           </ul>
         </div>
         <div
@@ -224,10 +268,10 @@
     <footer class="flex justify-center items-center py-4">
       <p class="text-gray-500 text-xs">&copy; Abulfazl Amiri, 2026</p>
     </footer>
-    <div class="overlay absolute h-full w-full backdrop-blur-xs"></div>
+    <div class="overlay hidden absolute h-full w-full backdrop-blur-xs"></div>
 
     <div
-      class="preview-container absolute size-full flex justify-center items-center"
+      class="preview-container absolute size-full hidden justify-center items-center"
     >
       <div
         class="profile-preview absolute flex flex-col w-[80vw] h-[50vh] bg-[#222] px-10 py-8 pt-14"
