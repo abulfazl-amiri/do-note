@@ -82,7 +82,7 @@
         </ul>
       </nav>
     </header>
-    <main id="app" class="flex justify-center items-center flex-1">
+    <main id="app" class="hidden justify-center items-center flex-1">
       <section id="todo-app" class="w-2xl grid gap-4 rounded-sm px-4 pt-10">
         <form
           class="todo-form flex flex-row justify-between items-center relative grow-0 bg-[#222] text-white px-4 rounded-sm border-transparent border focus-within:border focus-within:border-current"
@@ -113,9 +113,7 @@
 
         <div id="todo-container" class="flex-1 min-h-0">
           <ul class="todo-list flex flex-col gap-2 h-[60vh] overflow-y-auto">
-            <li
-              class="todo grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3 px-4 py-5 max-w-full text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
-            >
+            <li class="todo">
               <button class="hover:brightness-75">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +131,7 @@
                 </svg>
               </button>
               <span class="overflow-x-clip"> Code 2h at 4pm </span>
-              <button class="ml-auto hover:brightness-75 p-1">
+              <button class="btn-close ml-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -151,9 +149,7 @@
                 </svg>
               </button>
             </li>
-            <li
-              class="todo grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3 px-4 py-5 text-white mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
-            >
+            <li class="todo">
               <button class="hover:brightness-75">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +172,7 @@
               >
                 A very long task with a lot of words, it will get ellipsised
               </span>
-              <button class="ml-auto hover:brightness-75 p-1">
+              <button class="btn-close ml-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -194,9 +190,7 @@
                 </svg>
               </button>
             </li>
-            <li
-              class="todo grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3 px-4 py-5 text-gray-400 mb-0.5 bg-[#333] hover:contrast-[.90] rounded-sm"
-            >
+            <li class="todo todo-done">
               <button class="hover:brightness-75">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +214,7 @@
               >
                 A Done task. grayed and crossed
               </span>
-              <button class="ml-auto hover:brightness-75 p-1">
+              <button class="btn-close ml-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -265,13 +259,14 @@
         </div>
       </section>
     </main>
+    div
     <footer class="flex justify-center items-center py-4">
       <p class="text-gray-500 text-xs">&copy; Abulfazl Amiri, 2026</p>
     </footer>
-    <div class="overlay hidden absolute h-full w-full backdrop-blur-xs"></div>
+    <div class="overlay hidden"></div>
 
     <div
-      class="preview-container absolute size-full hidden justify-center items-center"
+      class="preview-container absolute hidden size-full justify-center items-center"
     >
       <div
         class="profile-preview absolute flex flex-col w-[80vw] h-[50vh] bg-[#222] px-10 py-8 pt-14"

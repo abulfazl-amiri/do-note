@@ -1,28 +1,31 @@
 @import "tailwindcss";
 
-/* :root { */
-/* --prim-color: #8b98f9; */
-/* --bg-color: rgb(13 14 25); */
-/* --txt-color: #e7eaff; */
-/* } */
-
-body {
-  font-family: "Inter", sans-serif;
-
-  box-sizing: border-box;
-  margin: 0;
-  min-height: 100vh;
-
-  /* background-color: var(--bg-color);
-  color: var(--txt-color); */
-  background-color: #111;
-  color: #eee;
+@layer base {
+  body {
+    @apply bg-[#111] text-[#eee] min-h-screen font-sans;
+  }
 }
-
-#todo-container {
-  scrollbar-width: thin;
-  scrollbar-color: #4b5563 #222;
+@layer components {
+  .btn-close {
+    @apply cursor-pointer p-2 hover:brightness-75;
+  }
+  .todo {
+    @apply grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3
+      px-4 py-5 mb-0.5 
+      bg-[#333] hover:contrast-[.90] rounded-sm;
+  }
+  .todo-done {
+    @apply text-gray-400;
+  }
+  .overlay {
+    @apply absolute h-full w-full backdrop-blur-xs;
+  }
 }
-button {
-  cursor: pointer;
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+}
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
