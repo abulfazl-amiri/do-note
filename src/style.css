@@ -4,10 +4,19 @@
   body {
     @apply bg-[#111] text-[#eee] min-h-screen font-sans;
   }
+  *:focus {
+    @apply outline outline-amber-500;
+  }
 }
 @layer components {
+  .btn {
+    @apply cursor-pointer hover:brightness-75;
+  }
   .btn-close {
     @apply cursor-pointer p-2 hover:brightness-75;
+  }
+  .card {
+    @apply mx-4 rounded-sm;
   }
   .todo {
     @apply grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3

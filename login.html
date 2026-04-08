@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DoNote</title>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/login.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,5 +12,54 @@
       rel="stylesheet"
     />
   </head>
-  <body class="max-h-dvh flex-center"></body>
+  <body class="max-h-dvh flex-center">
+    <div
+      class="card card--sign-in flex-center flex-col px-6 py-12 mx-4 bg-[#222] gap-4"
+    >
+      <div class="container flex-center flex-col text-center">
+        <div class="logo-container flex-center px-28">
+          <img
+            class="h-full object-contain"
+            src="/logo-amber.png"
+            alt="Logo of the DoNote App"
+          />
+        </div>
+        <span class="text-gray-300">Note it. Do it. Win a donut.</span>
+        <span class="text-sm text-gray-400"
+          >The only simplist way to get things done!</span
+        >
+      </div>
+      <form action="" class="form-login grid w-full gap-1">
+        <div class="flex flex-col">
+          <label for="username" class="px-2 py-2 text-gray-300"
+            >Username*</label
+          >
+          <input
+            type="text"
+            id="username"
+            placeholder="username"
+            required
+            class="input-username px-2 py-2 border border-gray-500 rounded-sm"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="pin" class="px-2 py-2 text-gray-300">Pin*</label>
+          <input
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            placeholder="xxxx"
+            required
+            id="pin"
+            class="input-pin px-2 py-2 border border-gray-500 rounded-sm"
+          />
+        </div>
+        <div class="flex flex-col mt-6">
+          <button class="btn btn-login w-full py-2 rounded-sm bg-amber-600">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
