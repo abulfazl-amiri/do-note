@@ -30,6 +30,9 @@
   .todo-done {
     @apply text-gray-400 brightness-75;
   }
+  .selected {
+    @apply font-semibold brightness-100 text-amber-500;
+  }
   .overlay {
     @apply absolute h-full w-full backdrop-blur-sm;
   }

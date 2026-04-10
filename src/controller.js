@@ -68,6 +68,10 @@ const handleTodoBtns = function (action, todoId) {
   if (action === "toggle") {
     let currentState = appState.todoes[todoIndex].state;
     currentState = currentState === "DOING" ? "DONE" : "DOING";
+    if (currentState === "DOING") {
+      appState.dones.splice(todoIndex, 1);
+    }
+
     appState.todoes[todoIndex].state = currentState;
     console.log("toggled todo state by id:", todoId);
   }

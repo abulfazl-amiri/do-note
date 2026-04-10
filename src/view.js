@@ -125,12 +125,22 @@ export const addHandlerFilterBtns = function (handler) {
     const filterDoing = e.target.closest(".filter-doing");
     const filterDone = e.target.closest(".filter-done");
     if (filterAll) {
+      filterAll.classList.add("selected");
+      document.querySelector(".filter-doing")?.classList.remove("selected");
+      document.querySelector(".filter-done")?.classList.remove("selected");
       handler("ALL");
     }
     if (filterDoing) {
+      filterDoing.classList.add("selected");
+      document.querySelector(".filter-all")?.classList.remove("selected");
+      document.querySelector(".filter-done")?.classList.remove("selected");
+
       handler("DOING");
     }
     if (filterDone) {
+      filterDone.classList.add("selected");
+      document.querySelector(".filter-all")?.classList.remove("selected");
+      document.querySelector(".filter-doing")?.classList.remove("selected");
       handler("DONE");
     }
   });
