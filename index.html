@@ -16,10 +16,10 @@
   <body class="max-h-dvh flex flex-col text-sm relative">
     <!-- Section Login-->
     <section
-      class="section-login size-full flex-center absolute z-10 bg-[#111]"
+      class="section-login size-full flex-center absolute z-10 bg-[#ccc] dark:bg-[#111]"
     >
       <div
-        class="card card--sign-in flex-center max-w-md flex-col px-5 py-12 mx-5 bg-[#222] gap-4"
+        class="card card--sign-in flex-center max-w-md flex-col px-5 py-12 mx-5 bg-[#ddd] dark:bg-[#222] gap-4"
       >
         <div class="container flex-center flex-col text-center">
           <div
@@ -31,14 +31,18 @@
               alt="Logo of the DoNote App"
             />
           </div>
-          <span class="text-gray-300">Note it. Do it. Win a donut.</span>
-          <span class="text-sm text-gray-400"
+          <span class="text-gray-600 dark:text-gray-300 mb-2"
+            >Note it. Do it. Win a donut.</span
+          >
+          <span class="text-sm text-gray-500 dark:text-gray-400 mb-2"
             >The only simplist way to get things done!</span
           >
         </div>
         <form action="" class="form-login grid w-full gap-1">
           <div class="flex flex-col">
-            <label for="username" class="px-2 py-2 text-gray-300"
+            <label
+              for="username"
+              class="px-2 py-2 text-gray-600 dark:text-gray-300"
               >Username*</label
             >
             <input
@@ -52,7 +56,9 @@
             />
           </div>
           <div class="flex flex-col">
-            <label for="pin" class="px-2 py-2 text-gray-300">Pin*</label>
+            <label for="pin" class="px-2 py-2 text-gray-600 dark:text-gray-300"
+              >Pin*</label
+            >
             <input
               type="password"
               inputmode="numeric"
@@ -75,7 +81,7 @@
     <!-- header -->
     <header class="h-20">
       <nav
-        class="h-full w-full box-border grid grid-cols-3 items-center px-2 gap-4 shadow-lg bg-[#222]"
+        class="h-full w-full box-border grid grid-cols-3 items-center px-2 gap-4 shadow-lg bg-[#ddd] dark:bg-[#222]"
       >
         <div class="w-24 h-full">
           <img
@@ -91,7 +97,7 @@
           <span class="counter--todo-done">0</span>
         </div>
         <ul
-          class="m-0 flex items-center justify-end p-0 list-none text-gray-400"
+          class="m-0 flex items-center justify-end p-0 list-none text-gray-500 dark:text-gray-400"
         >
           <li class="px-3 py-2">
             <button
@@ -116,32 +122,6 @@
               <span class="hidden"> Profile </span>
             </button>
           </li>
-          <li class="px-3 py-2">
-            <button class="btn flex flex-row gap-2 hover:contrast-75">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="size-5 lucide lucide-sun-icon lucide-sun"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2" />
-                <path d="M12 20v2" />
-                <path d="m4.93 4.93 1.41 1.41" />
-                <path d="m17.66 17.66 1.41 1.41" />
-                <path d="M2 12h2" />
-                <path d="M20 12h2" />
-                <path d="m6.34 17.66-1.41 1.41" />
-                <path d="m19.07 4.93-1.41 1.41" />
-              </svg>
-            </button>
-          </li>
         </ul>
       </nav>
     </header>
@@ -149,7 +129,7 @@
     <main id="app" class="flex-center flex-1">
       <section id="todo-app" class="w-2xl grid gap-4 rounded-sm px-4 pt-10">
         <form
-          class="todo-form flex flex-row justify-between items-center relative grow-0 bg-[#222] text-white px-4 rounded-sm border-transparent border focus-within:border focus-within:border-amber-600"
+          class="todo-form flex flex-row justify-between items-center relative grow-0 bg-[#ddd] dark:bg-[#222] text-slate-950 dark:text-slate-50 px-4 rounded-sm border-transparent border focus-within:border focus-within:border-amber-600"
         >
           <input
             type="text"
@@ -298,15 +278,17 @@
                 </svg>
               </button>
             </li> -->
-            <span class="text-center text-gray-500">No Todoes here.</span>
+            <span class="text-center text-gray-400 dark:text-gray-500"
+              >No Todoes here.</span
+            >
           </ul>
         </div>
         <div
-          class="sort flex flex-row justify-between items-center mt-auto text-gray-500 px-1 text-xs"
+          class="sort flex flex-row justify-between items-center mt-auto text-gray-400 dark:text-gray-500 px-1 text-xs"
         >
           <div class="mr-auto">
             <span
-              class="todo-counter w-6 h-6 px-2 inline-flex items-center justify-center rounded-full bg-[#222] text-amber-500"
+              class="todo-counter w-6 h-6 px-2 inline-flex items-center justify-center rounded-full bg-[#ddd] dark:bg-[#222] text-amber-500"
               title="Total todos"
             >
               0
@@ -321,7 +303,7 @@
           </button>
         </div>
         <div
-          class="container--filter-btns flex justify-center gap-8 bg-[#222] rounded-sm px-6 py-3"
+          class="container--filter-btns flex justify-center gap-8 bg-[#ddd] dark:bg-[#222] rounded-sm px-6 py-3"
         >
           <button
             class="btn filter-all selected brightness-75 hover:brightness-75"
@@ -338,13 +320,15 @@
       </section>
     </main>
     <footer class="flex-center py-4">
-      <p class="text-gray-500 text-xs">&copy; Abulfazl Amiri, 2026</p>
+      <p class="text-gray-400 dark:text-gray-500 text-xs">
+        &copy; Abulfazl Amiri, 2026
+      </p>
     </footer>
 
     <div class="preview-container z-10 absolute hidden w-full h-full">
       <div class="overlay z-20"></div>
       <div
-        class="profile-preview z-30 absolute flex flex-col w-[80vw] max-w-md h-[50vh] bg-[#222] px-10 py-8 pt-14 rounded-sm"
+        class="profile-preview z-30 absolute flex flex-col w-[80vw] max-w-md h-[50vh] bg-[#ddd] dark:bg-[#222] px-10 py-8 pt-14 rounded-sm"
       >
         <button class="btn profile flex flex-row items-center gap-2 py-3">
           <!-- <img src="" alt="User's profile" /> -->

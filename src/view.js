@@ -343,7 +343,7 @@ function _generatePopUp(
   return `
     <div class="overlay z-10 absolute hidden">
       <div
-        class="popup-message absolute card flex-center z-20 max-w-md flex-col px-6 py-12 m-auto bg-[#222] text-gray-200 gap-4"
+        class="popup-message absolute card flex-center z-20 max-w-md flex-col px-6 py-12 m-auto bg[#ddd] dark:bg-[#222] text-gray-200 gap-4"
       >
         <h3 class="text-base">${caption.title}</h3>
         <p class="${messageColor}">${caption.message}</p>

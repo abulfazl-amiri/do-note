@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @plugin 'tailwind-scrollbar';
+/* 
+TODO: to theme toggle
+*/
+/* @custom-variant dark (&:where(.dark, .dark *)); */
 
 @layer base {
   body {
-    @apply bg-[#111] text-[#eee] min-h-screen font-sans accent-amber-600;
+    @apply bg-[#ccc] dark:bg-[#111] text-slate-950 dark:text-slate-50 min-h-screen font-sans accent-amber-600;
   }
   *:focus {
     @apply outline outline-amber-500;
@@ -25,10 +29,10 @@
   .todo {
     @apply grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)_fit-content(24px)] items-center gap-3
       px-4 py-5 mb-0.5 
-      bg-[#333] hover:contrast-[.90] rounded-sm;
+      bg-[#eee] dark:bg-[#333] hover:contrast-[.90] rounded-sm;
   }
   .todo-done {
-    @apply text-gray-400 brightness-75;
+    @apply dark:text-gray-400 brightness-75;
   }
   .selected {
     @apply font-semibold brightness-100 text-amber-500;
