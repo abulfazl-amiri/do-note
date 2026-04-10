@@ -58,6 +58,7 @@ export class Account {
   #username;
   #pin;
   #todoes = [];
+  #dones = [];
   /**
    *
    * @param {String} username the username of the account
@@ -68,14 +69,6 @@ export class Account {
     this.pin = pin;
   }
 
-  /**
-   * Adds a Todo to the todo array
-   * @param {Todo} todo the todo obj
-   */
-  addTodo(todo) {
-    if (!validateTodo(todo)) throw new Error(`Invalid Todo: '${todo}'`);
-    this.#todoes.push(todo);
-  }
   set username(username) {
     if (!username || !/^\w{3,16}$/.test(username)) {
       throw new Error(
@@ -97,6 +90,30 @@ export class Account {
     }
     this.#pin = pin;
   }
+  set todoes(todoes) {
+    if (Array.isArray(todoes) && todoes.length === 0) {
+      this.#todoes = []; // empty the todoes
+      return;
+    }
+    todoes.forEach((todo) => {
+      if (!validateTodo(todo)) throw new Error(`Invalid Todo: '${todo}'`);
+      if (this.#todoes.findIndex((todo) => todo.id === doneTodo.id) !== -1)
+        return;
+      this.#todoes = todoes;
+    });
+  }
+  set dones(dones) {
+    if (Array.isArray(dones) && dones.length === 0) {
+      this.#dones = []; // empty the todoes
+      return;
+    }
+    dones.forEach((done) => {
+      if (!validateTodo(done)) throw new Error(`Invalid Todo: '${done}'`);
+      if (this.#dones.findIndex((todo) => todo.id === doneTodo.id) !== -1)
+        return;
+      this.#dones = dones;
+    });
+  }
 
   get username() {
     return this.#username;
@@ -106,5 +123,17 @@ export class Account {
   }
   get todoes() {
     return this.#todoes;
+  }
+  get dones() {
+    //// merge [dones] and dones todoes from [todo]
+
+    const dones = this.#todoes.filter((todo) => todo.state === "DONE");
+    dones.forEach((doneTodo) => {
+      if (this.#dones.findIndex((todo) => todo.id === doneTodo.id) !== -1)
+        return;
+      this.#dones.push(doneTodo);
+    });
+
+    return this.#dones;
   }
 }

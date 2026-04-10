@@ -11,9 +11,7 @@ const counterTodoDone = document.querySelector(".counter--todo-done");
 const todoInput = document.querySelector(".todo-input");
 const todoForm = document.querySelector(".todo-form");
 const todoList = document.querySelector(".todo-list");
-const todo = document.querySelector(".todo");
-const btnsTodoState = document.querySelectorAll(".btn--toggle-state");
-const btnsTodoClose = document.querySelectorAll(".btn--close-todo");
+
 const btnClearAll = document.querySelector(".btn--clear-all");
 const btnClearDone = document.querySelector(".btn--clear-done");
 const todoCounter = document.querySelector(".todo-counter");
@@ -23,7 +21,11 @@ const containerFilterBtns = document.querySelector(".container--filter-btns");
 
 const previewContainer = document.querySelector(".preview-container");
 const overlay = document.querySelector(".overlay");
+const btnCreateNewAcc = document.querySelector(".btn--create-acc");
+const btnLogout = document.querySelector(".btn--logout");
 const btnClosePreview = document.querySelector(".btn--close-preview");
+const btnLoginAnother = document.querySelector(".btn--login-another");
+const btnClearHistory = document.querySelector(".btn--clear-history");
 
 // helpers
 const getUserCredentials = function () {
@@ -41,13 +43,52 @@ const clearTodoList = function () {
 const clearTodoInput = function () {
   todoInput.value = "";
 };
+const clearFormInputs = function () {
+  inputPin.value = "";
+  inputUsername.value = "";
+};
 
 export const hideLoginForm = function () {
   sectionLogin.classList.remove("flex-center");
   sectionLogin.classList.add("hidden");
 };
+export const showLoginForm = function () {
+  sectionLogin.classList.remove("hidden");
+  sectionLogin.classList.add("flex-center");
+};
+
 export const focusTodo = function () {
   todoInput.focus();
+};
+
+export const showProfilePreview = function () {
+  previewContainer.classList.remove("hidden");
+  previewContainer.classList.add("flex-center");
+};
+export const hideProfilePreview = function () {
+  previewContainer.classList.remove("flex-center");
+  previewContainer.classList.add("hidden");
+};
+
+/**
+ *
+ * @param {String} message The message to be shown in dialog
+ * @param {String} option   The option
+ * @returns
+ *  `undefined` for option="ALERT" | option="PROMPT"
+ *  `true/false` for option="CONFIRM"
+ *
+ */
+export const showDiolog = function (message, option = "ALERT") {
+  if (option === "ALERT") {
+    alert(message);
+  }
+  if (option === "CONFIRM") {
+    return confirm(message);
+  }
+  if (option === "PROMPT") {
+    prompt();
+  }
 };
 
 // abling handlers/controller -- login
@@ -57,6 +98,7 @@ export const addHandlerLoginFormOnSubmit = function (handler) {
     e.preventDefault();
 
     handler(getUserCredentials());
+    clearFormInputs();
     focusTodo();
   });
 };
@@ -65,19 +107,18 @@ export const addHandlerLoginFormOnSubmit = function (handler) {
 
 export const addHandlerShowProfile = function (handler) {
   btnShowProfile.addEventListener("click", function (e) {
-    previewContainer.classList.remove("hidden");
-    previewContainer.classList.add("flex-center");
+    showProfilePreview();
   });
 };
 
-[btnClosePreview, overlay].forEach((el) =>
-  el.addEventListener("click", function (e) {
-    previewContainer.classList.remove("flex-center");
+btnClosePreview.addEventListener("click", function (e) {
+  hideProfilePreview();
+});
+overlay.addEventListener("click", function (e) {
+  if (e.target !== overlay) return;
 
-    previewContainer.classList.add("hidden");
-    console.log(e);
-  }),
-);
+  hideProfilePreview();
+});
 
 export const addHandlerTodoInput = function (handler) {
   todoForm.addEventListener("submit", function (e) {
@@ -143,6 +184,22 @@ export const addHandlerFilterBtns = function (handler) {
       document.querySelector(".filter-doing")?.classList.remove("selected");
       handler("DONE");
     }
+  });
+};
+
+export const addHandlerLogInAnother = function (handler) {
+  btnLoginAnother.addEventListener("click", function (e) {
+    handler();
+  });
+};
+export const addHandlerLogout = function (handler) {
+  btnLogout.addEventListener("click", function (e) {
+    handler();
+  });
+};
+export const addHandlerClearHistory = function (handler) {
+  btnClearHistory.addEventListener("click", function (e) {
+    handler();
   });
 };
 
@@ -235,3 +292,65 @@ function _generateTodoHTML(id, task, state) {
     </li>
   `;
 }
+/*
+export const renderPopUpAndAddHandler = function (
+  caption = {
+    title: "Something went worng!",
+    message: "",
+    type: "CONFIRMATION",
+  },
+  mainBtnLabel = "OK",
+  secondaryBtnLabel = null,
+  parentEl,
+  onAccept,
+  onReject,
+) {
+  parentEl.insertAdjacentHTML(
+    "beforeend",
+    _generatePopUp(caption, { mainBtnLabel, secondaryBtnLabel }),
+  );
+  parentEl.addEventListener("click", function (e) {
+    const popUpBtn = e.target.closest(".btn--pop-up");
+    if (!popUpBtn) return;
+    if (popUpBtn.textContent === mainBtnLabel) {
+      onAccept();
+    }
+    if (popUpBtn.textContent === secondaryBtnLabel) {
+      onReject();
+    }
+  });
+};
+function _generatePopUp(
+  caption = {
+    title: "Something went worng!",
+    message: "",
+    type: "CONFIRMATION",
+  },
+  btnsLabel = {
+    mainBtnLabel: "OK",
+    secondaryBtnLabel: null,
+  },
+) {
+  const secondaryBtnLabel = btnsLabel.secondaryBtnLabel
+    ? `<button class="btn btn--pop-up px-3 py-2 rounded-sm">Cancel</button>`
+    : "";
+  const messageColor =
+    caption.type === "CONFIRMATION" ? "text-gray-300" : "text-orange-600";
+
+  return `
+    <div class="overlay z-10 absolute hidden">
+      <div
+        class="popup-message absolute card flex-center z-20 max-w-md flex-col px-6 py-12 m-auto bg-[#222] text-gray-200 gap-4"
+      >
+        <h3 class="text-base">${caption.title}</h3>
+        <p class="${messageColor}">${caption.message}</p>
+        <div class="flex gap-8">
+          <button class="btn btn--pop-up bg-amber-600 px-3 py-2 rounded-sm">${btnsLabel.mainBtnLabel}</button>
+          ${secondaryBtnLabel}
+        </div>
+      </div>
+    </div>
+
+  `;
+}
+  */

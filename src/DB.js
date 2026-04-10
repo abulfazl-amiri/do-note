@@ -42,6 +42,9 @@ export default class Database {
       (acc) => acc.username === username && acc.pin === pin,
     );
   }
+  findUser(username) {
+    return this.accounts.find((acc) => acc.username === username);
+  }
 
   removeAccount(account) {
     const accountIndex = this.#accounts.findIndex(

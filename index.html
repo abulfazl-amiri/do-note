@@ -19,7 +19,7 @@
       class="section-login size-full flex-center absolute z-10 bg-[#111]"
     >
       <div
-        class="card card--sign-in flex-center max-w-md flex-col px-6 py-12 mx-4 bg-[#222] gap-4"
+        class="card card--sign-in flex-center max-w-md flex-col px-5 py-12 mx-5 bg-[#222] gap-4"
       >
         <div class="container flex-center flex-col text-center">
           <div
@@ -338,11 +338,12 @@
       <p class="text-gray-500 text-xs">&copy; Abulfazl Amiri, 2026</p>
     </footer>
 
-    <div class="preview-container overlay z-10 absolute hidden">
+    <div class="preview-container z-10 absolute hidden w-full h-full">
+      <div class="overlay z-20"></div>
       <div
-        class="profile-preview z-20 absolute flex flex-col w-[80vw] max-w-md h-[50vh] bg-[#222] px-10 py-8 pt-14 rounded-sm"
+        class="profile-preview z-30 absolute flex flex-col w-[80vw] max-w-md h-[50vh] bg-[#222] px-10 py-8 pt-14 rounded-sm"
       >
-        <div class="profile flex flex-row items-center gap-2 py-3">
+        <button class="btn profile flex flex-row items-center gap-2 py-3">
           <!-- <img src="" alt="User's profile" /> -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -361,8 +362,10 @@
             <circle cx="12" cy="12" r="10" />
           </svg>
           <span> Full Name </span>
-        </div>
-        <div class="profile flex flex-row items-center gap-2 py-3">
+        </button>
+        <button
+          class="btn btn--clear-history profile flex flex-row items-center gap-2 py-3"
+        >
           <!-- <img src="" alt="User's profile" /> -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -381,9 +384,11 @@
             <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
           </svg>
           <span> Clear All Todoes & History </span>
-        </div>
+        </button>
         <div class="seprator border-b border-amber-900 mt-2"></div>
-        <div class="flex flex-row items-center gap-2 py-3">
+        <button
+          class="btn btn--login-another flex flex-row items-center gap-2 py-3"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -401,9 +406,9 @@
             <path d="M19 16v6" />
             <path d="M22 19h-6" />
           </svg>
-          <span> Create new account </span>
-        </div>
-        <div class="flex flex-row items-center gap-2 py-3">
+          <span> Login</span>
+        </button>
+        <button class="btn btn--logout flex flex-row items-center gap-2 py-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -421,9 +426,9 @@
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
           </svg>
           <span> Logout </span>
-        </div>
+        </button>
 
-        <button class="absolute right-2 top-2 p-4">
+        <button class="btn btn--close-preview absolute right-2 top-2 p-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
