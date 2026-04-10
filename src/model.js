@@ -1,8 +1,9 @@
 import { validateTodo } from "./helper.js";
 
 export class Todo {
+  #id;
   /**
-   * Doing | Done | Deleted
+   * Doing | Done
    */
   #state;
   #task;
@@ -15,6 +16,12 @@ export class Todo {
   constructor(task, state) {
     this.task = task;
     this.state = state;
+    // creates a randmo id like: `224c2576-c469-4f5b-a053-8b4cfe166ad3`
+    this.id = crypto.randomUUID();
+  }
+
+  set id(id) {
+    this.#id = id;
   }
 
   set task(task) {
@@ -35,6 +42,9 @@ export class Todo {
     this.#state = state;
   }
 
+  get id() {
+    return this.#id;
+  }
   get state() {
     return this.#state;
   }

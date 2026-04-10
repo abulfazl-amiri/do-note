@@ -1,6 +1,6 @@
 import { validateAccount } from "./helper.js";
 
-export class Database {
+export default class Database {
   #accounts;
 
   /**
@@ -24,12 +24,23 @@ export class Database {
     }
     this.#accounts = accounts;
   }
+  get accounts() {
+    return this.#accounts;
+  }
 
   addAccount(account) {
     if (!validateAccount(account)) {
       throw new Error(`Invalid account: '${account}'`);
     }
     this.#accounts.push(account);
+    console.log(account);
+    console.log(this.accounts);
+  }
+
+  findAccount(username, pin) {
+    return this.accounts.find(
+      (acc) => acc.username === username && acc.pin === pin,
+    );
   }
 
   removeAccount(account) {

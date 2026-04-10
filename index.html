@@ -14,6 +14,62 @@
     />
   </head>
   <body class="max-h-dvh flex flex-col text-sm relative">
+    <!-- Section Login-->
+    <section
+      class="section-login size-full flex-center absolute z-10 bg-[#111]"
+    >
+      <div
+        class="card card--sign-in flex-center max-w-md flex-col px-6 py-12 mx-4 bg-[#222] gap-4"
+      >
+        <div class="container flex-center flex-col text-center">
+          <div
+            class="logo-container flex-center px-28 shrink-0 min-w-xs max-w-sm"
+          >
+            <img
+              class="h-full object-contain"
+              src="/logo-amber.png"
+              alt="Logo of the DoNote App"
+            />
+          </div>
+          <span class="text-gray-300">Note it. Do it. Win a donut.</span>
+          <span class="text-sm text-gray-400"
+            >The only simplist way to get things done!</span
+          >
+        </div>
+        <form action="" class="form-login grid w-full gap-1">
+          <div class="flex flex-col">
+            <label for="username" class="px-2 py-2 text-gray-300"
+              >Username*</label
+            >
+            <input
+              type="text"
+              id="username"
+              placeholder="username"
+              required
+              class="input-username px-2 py-2 border border-gray-500 rounded-sm"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="pin" class="px-2 py-2 text-gray-300">Pin*</label>
+            <input
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              placeholder="xxxx"
+              required
+              id="pin"
+              class="input-pin px-2 py-2 border border-gray-500 rounded-sm"
+            />
+          </div>
+          <div class="flex flex-col mt-6">
+            <button class="btn btn-login w-full py-2 rounded-sm bg-amber-600">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- header -->
     <header class="h-20">
       <nav
         class="h-full w-full box-border grid grid-cols-3 items-center px-2 gap-4 shadow-lg bg-[#222]"
@@ -29,11 +85,15 @@
           class="flex flex-row justify-center items-center gap-1 text-amber-500 hover:contrast-75"
         >
           <img class="size-5" src="/icon.png" alt="Won donutes" />
-          <span>+3</span>
+          <span class="counter--todo-done">0</span>
         </div>
-        <ul class="m-0 flex items-center justify-end p-0 list-none">
+        <ul
+          class="m-0 flex items-center justify-end p-0 list-none text-gray-400"
+        >
           <li class="px-3 py-2">
-            <button class="flex flex-row gap-2 text-white hover:contrast-75">
+            <button
+              class="btn btn--show-profile flex flex-row gap-2 hover:contrast-75"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -54,7 +114,7 @@
             </button>
           </li>
           <li class="px-3 py-2">
-            <button class="flex flex-row gap-2 text-white hover:contrast-75">
+            <button class="btn flex flex-row gap-2 hover:contrast-75">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -82,15 +142,16 @@
         </ul>
       </nav>
     </header>
+    <!-- App -->
     <main id="app" class="flex-center flex-1">
       <section id="todo-app" class="w-2xl grid gap-4 rounded-sm px-4 pt-10">
         <form
-          class="todo-form flex flex-row justify-between items-center relative grow-0 bg-[#222] text-white px-4 rounded-sm border-transparent border focus-within:border focus-within:border-current"
+          class="todo-form flex flex-row justify-between items-center relative grow-0 bg-[#222] text-white px-4 rounded-sm border-transparent border focus-within:border focus-within:border-amber-600"
         >
           <input
             type="text"
             placeholder="Create a new todo..."
-            class="todo-input py-4 rounded-sm w-full border-0 outline-0"
+            class="todo-input py-4 pr-2 rounded-sm w-full border-0 outline-0"
           />
           <button class="btn-add bg-amber-600 rounded-sm p-1">
             <svg
@@ -112,8 +173,10 @@
         </form>
 
         <div id="todo-container" class="flex-1 min-h-0">
-          <ul class="todo-list flex flex-col gap-2 h-[60vh] overflow-y-auto">
-            <li class="todo">
+          <ul
+            class="todo-list flex flex-col gap-2 h-[60vh] overflow-y-auto scrollbar-special"
+          >
+            <!-- <li class="todo">
               <button class="hover:brightness-75">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -231,7 +294,8 @@
                   <path d="m6 6 12 12" />
                 </svg>
               </button>
-            </li>
+            </li> -->
+            <span class="text-center text-gray-500">No Todoes here.</span>
           </ul>
         </div>
         <div
@@ -239,40 +303,48 @@
         >
           <div class="mr-auto">
             <span
-              class="w-6 h-6 px-2 inline-flex items-center justify-center rounded-full bg-[#222] text-amber-500"
+              class="todo-counter w-6 h-6 px-2 inline-flex items-center justify-center rounded-full bg-[#222] text-amber-500"
               title="Total todos"
             >
-              5
+              0
             </span>
             <span class="">Tasks</span>
           </div>
-          <button class="">Clear All</button>
+          <button class="btn btn--clear-done mr-auto hover:text-amber-600">
+            Clear Done
+          </button>
+          <button class="btn btn--clear-all hover:text-red-600">
+            Clear All
+          </button>
         </div>
         <div
-          class="flex justify-center gap-8 bg-[#222] text-amber-500 rounded-sm px-6 py-3"
+          class="container--filter-btns flex justify-center gap-8 bg-[#222] text-amber-500 rounded-sm px-6 py-3"
         >
-          <button class="selected brightness-100 hover:brightness-75">
+          <button
+            class="btn filter-all selected brightness-100 hover:brightness-75"
+          >
             All
           </button>
-          <button class="brightness-75 hover:brightness-75">Doing</button>
-          <button class="brightness-75 hover:brightness-75">Done</button>
+          <button class="btn filter-doing brightness-75 hover:brightness-75">
+            Doing
+          </button>
+          <button class="btn filter-done brightness-75 hover:brightness-75">
+            Done
+          </button>
         </div>
       </section>
     </main>
-    <footer class="flex justify-center items-center py-4">
+    <footer class="flex-center py-4">
       <p class="text-gray-500 text-xs">&copy; Abulfazl Amiri, 2026</p>
     </footer>
-    <div class="overlay hidden"></div>
 
-    <div
-      class="preview-container absolute hidden size-full justify-center items-center"
-    >
+    <div class="preview-container overlay z-10 absolute hidden">
       <div
-        class="profile-preview absolute flex flex-col w-[80vw] h-[50vh] bg-[#222] px-10 py-8 pt-14"
+        class="profile-preview z-20 absolute flex flex-col w-[80vw] h-[50vh] bg-[#222] px-10 py-8 pt-14 rounded-sm"
       >
         <div class="profile flex flex-row items-center gap-2 py-3">
           <!-- <img src="" alt="User's profile" /> -->
-          <svgj
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -287,7 +359,7 @@
             <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
             <circle cx="12" cy="11" r="4" />
             <circle cx="12" cy="12" r="10" />
-          </svgj>
+          </svg>
           <span> Full Name </span>
         </div>
         <div class="profile flex flex-row items-center gap-2 py-3">
@@ -362,7 +434,7 @@
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-4 h-4 lucide lucide-x-icon lucide-x"
+            class="btn btn--close-preview size-4 lucide lucide-x-icon lucide-x"
           >
             <path d="M18 6 6 18" />
             <path d="m6 6 12 12" />

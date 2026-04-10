@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^8.0.1"
+    "tailwind-scrollbar": "^4.0.2",
+    "vite": "^8.0.8"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",

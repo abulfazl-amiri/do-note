@@ -1,11 +1,15 @@
 @import "tailwindcss";
+@plugin 'tailwind-scrollbar';
 
 @layer base {
   body {
-    @apply bg-[#111] text-[#eee] min-h-screen font-sans;
+    @apply bg-[#111] text-[#eee] min-h-screen font-sans accent-amber-600;
   }
   *:focus {
     @apply outline outline-amber-500;
+  }
+  input {
+    @apply caret-amber-600;
   }
 }
 @layer components {
@@ -19,22 +23,27 @@
     @apply mx-4 rounded-sm;
   }
   .todo {
-    @apply grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)] items-center gap-3
+    @apply grid grid-cols-[fit-content(24px)_minmax(0,1fr)_fit-content(24px)_fit-content(24px)] items-center gap-3
       px-4 py-5 mb-0.5 
       bg-[#333] hover:contrast-[.90] rounded-sm;
   }
   .todo-done {
-    @apply text-gray-400;
+    @apply text-gray-400 brightness-75;
   }
   .overlay {
-    @apply absolute h-full w-full backdrop-blur-xs;
+    @apply absolute h-full w-full backdrop-blur-sm;
   }
 }
-@layer utilities {
-  .flex-center {
-    @apply flex justify-center items-center;
-  }
+
+@utility flex-center {
+  @apply flex justify-center items-center;
 }
+@utility scrollbar-special {
+  @apply scrollbar-thin 
+    scrollbar-thumb-amber-600 
+    scrollbar-track-transparent scrollbar-corner-transparent;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
