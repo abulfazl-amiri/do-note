@@ -16,6 +16,7 @@ import {
   hideProfilePreview,
   addHandlerLogout,
   addHandlerClearHistory,
+  showProfilePreview,
 } from "./view.js";
 
 const appState = {
@@ -152,7 +153,9 @@ const handleClearDone = function () {
   renderTodoes(appState.currentUser.todoes, dones);
 };
 
-const handleProfilePreview = function () {};
+const handleProfilePreview = function () {
+  showProfilePreview();
+};
 const resetSession = function () {
   appState.currentUser = null;
   appState.activeFilter = "ALL";

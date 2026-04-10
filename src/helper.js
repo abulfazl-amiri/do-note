@@ -23,3 +23,13 @@ export const validateTodo = function (todo) {
 
   return true;
 };
+
+export const validateUsername = function (username) {
+  if (!account?.username || !/^\w{3,16}$/.test(account.username)) return false;
+  return true;
+};
+
+export const validatePin = function (pin) {
+  if (!/^\d{3,16}$/.test(account?.pin)) return false;
+  return true;
+};

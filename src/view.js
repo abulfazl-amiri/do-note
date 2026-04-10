@@ -1,4 +1,6 @@
+import { validateUsername, validatePin } from "./helper";
 // selecting elements
+
 // login
 const btnLogin = document.querySelector(".btn-login");
 const inputUsername = document.querySelector(".input-username");
@@ -21,11 +23,11 @@ const containerFilterBtns = document.querySelector(".container--filter-btns");
 
 const previewContainer = document.querySelector(".preview-container");
 const overlay = document.querySelector(".overlay");
-const btnCreateNewAcc = document.querySelector(".btn--create-acc");
-const btnLogout = document.querySelector(".btn--logout");
-const btnClosePreview = document.querySelector(".btn--close-preview");
-const btnLoginAnother = document.querySelector(".btn--login-another");
+const lableUsernameCur = document.querySelector(".username--curent-user");
 const btnClearHistory = document.querySelector(".btn--clear-history");
+const btnLogout = document.querySelector(".btn--logout");
+const btnLoginAnother = document.querySelector(".btn--login-another");
+const btnClosePreview = document.querySelector(".btn--close-preview");
 
 // helpers
 const getUserCredentials = function () {
@@ -61,9 +63,10 @@ export const focusTodo = function () {
   todoInput.focus();
 };
 
-export const showProfilePreview = function () {
+export const showProfilePreview = function (username = "User") {
   previewContainer.classList.remove("hidden");
   previewContainer.classList.add("flex-center");
+  lableUsernameCur.textContent = username;
 };
 export const hideProfilePreview = function () {
   previewContainer.classList.remove("flex-center");
@@ -96,7 +99,6 @@ export const showDiolog = function (message, option = "ALERT") {
 export const addHandlerLoginFormOnSubmit = function (handler) {
   formLogin.addEventListener("submit", function (e) {
     e.preventDefault();
-
     handler(getUserCredentials());
     clearFormInputs();
     focusTodo();
@@ -107,6 +109,7 @@ export const addHandlerLoginFormOnSubmit = function (handler) {
 
 export const addHandlerShowProfile = function (handler) {
   btnShowProfile.addEventListener("click", function (e) {
+    handler();
     showProfilePreview();
   });
 };
