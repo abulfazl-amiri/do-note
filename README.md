@@ -3,7 +3,7 @@
 - Note it. Do it. Win donut 
 Do-Note helps you get things done. 
 
-LIVE: https://github.com/do-note-amiri.vercel.app
+LIVE: [do-note-amiri](https://github.com/do-note-amiri.vercel.app)
 
 Features: 
 - Damn easy to use! (I really tried hard on the UX)
